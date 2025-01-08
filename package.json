@@ -10,5 +10,16 @@
     "inquirer": "8",
     "scp2": "^0.5.0",
     "ssh2": "^1.16.0"
+  },
+  "scripts": {
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "pub": "standard-version && npm publish",
+    "pub:major": "standard-version --release-as major && npm publish",
+    "pub:minor": "standard-version --release-as minor && npm publish",
+    "pub:patch": "standard-version --release-as patch && npm publish"
+  },
+  "devDependencies": {
+    "standard-version": "^9.0.0",
+    "conventional-changelog-cli": "^2.2.2"
   }
 }
