@@ -7,6 +7,7 @@
   "author": "jser <wangjser@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "inquirer": "8",
     "scp2": "^0.5.0",
     "ssh2": "^1.16.0"
   }
