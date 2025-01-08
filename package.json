@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "name": "node-kit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ustinian-wang/node-kit.git",
+  "author": "jser <872440899@qq.com>",
+  "license": "MIT"
+}
