@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/ustinian-wang/node-kit/compare/v1.0.1...v1.0.2) (2025-01-09)
+
+
+### Features
+
+* update fs and log ([6c0a2e2](https://github.com/ustinian-wang/node-kit/commit/6c0a2e27f8b74d149d952d003537322bbb41707b))
+
 ### 1.0.1 (2025-01-08)
 
 
