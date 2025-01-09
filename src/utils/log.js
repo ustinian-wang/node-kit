@@ -11,3 +11,11 @@ export const logDecorator = (prefix='', post='')=>{
     }
 }
 
+/**
+ * 创建一个流程日志装饰器
+ * @returns {function} - 装饰后的函数
+ */
+export const createFlowLog = ()=>{
+    const flow = performance.now()+"";
+    return logDecorator(`flow:{${flow}}`);
+}

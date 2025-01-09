@@ -69,3 +69,105 @@ export async function checkFileExists(filePath) {
     }
 }
 
+/**
+ * @description 删除文件
+ * @param {string} filePath 文件路径
+ * @returns {Promise<void>} 删除文件的Promise
+ */
+export async function deleteFile(filePath) {
+    if(await checkFileExists(filePath) && await isFile(filePath)){
+        await fs.unlink(filePath);
+    }
+}
+
+/**
+ * @description 删除目录及其所有内容
+ * @param {string} dirPath 目录路径
+ * @returns {Promise<void>} 删除目录的Promise
+ */
+export async function deleteDir(dirPath) {
+    const files = await fs.readdir(dirPath);
+    const deletePromises = files.map(async (file) => {
+        const filePath = `${dirPath}/${file}`;
+        const stats = await fs.stat(filePath);
+        if (stats.isDirectory()) {
+            return deleteDir(filePath); // 递归删除子目录
+        } else {
+            return fs.unlink(filePath); // 删除文件
+        }
+    });
+    await Promise.all(deletePromises);
+    await fs.rmdir(dirPath); // 删除空目录
+}
+
+/**
+ * @description 检查文件是否存在
+ * @param {string} filePath 文件路径
+ * @returns {Promise<boolean>} 文件是否存在
+ */
+export const isFile = async (filePath)=>{
+    const stats = await fs.stat(filePath);
+    return stats.isFile();
+}
+
+/**
+ * @description 检查目录是否存在
+ * @param {string} dirPath 目录路径
+ * @returns {Promise<boolean>} 目录是否存在
+ */
+export const isDir = async (dirPath)=>{
+    const stats = await fs.stat(dirPath);
+    return stats.isDirectory();
+}
+
+/**
+ * @description 复制目录
+ * @param {string} srcDir 源目录路径
+ * @param {string} distDir 目标目录路径
+ * @returns {Promise<boolean>} 复制目录的Promise
+ */
+export async function copyDir(srcDir, distDir){
+    //判断是否存在
+    if(!fs.existsSync(srcDir)){
+        return false;
+    }
+    if(!fs.existsSync(distDir)){
+        return false;
+    }
+    //判断是否是文件夹
+    if(!fs.statSync(srcDir).isDirectory()){
+        return false;
+    }
+    if(!fs.statSync(distDir).isDirectory()){
+        return false;
+    }
+    //获取文件夹下的所有文件
+    var srcFiles = fs.readdirSync(srcDir);
+
+    let saveTasks =  srcFiles.filter((fileName, index)=>{
+        var srcFilePath = path.join(srcDir, fileName);
+
+        var fileStats = fs.statSync(srcFilePath);
+        if(fileStats.isDirectory()){//如果是目录，直接跳过
+            return false;
+        }
+        return true;
+    }).map((fileName, index)=>{
+        var srcFilePath = path.join(srcDir, fileName);
+        var distFilePath = path.join(distDir, fileName);
+
+        return copyFile(srcFilePath, distFilePath);
+    });
+
+    await Promise.all(saveTasks);
+}
+
+/**
+ * @description 复制文件
+ * @param {string} srcFilePath 源文件路径
+ * @param {string} distFilePath 目标文件路径
+ * @returns {Promise<boolean>} 复制文件的Promise
+ */
+export async function copyFile(srcFilePath, distFilePath){
+    await fs.copyFile(srcFilePath, distFilePath);
+}
