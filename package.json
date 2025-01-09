@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@ustinian-wang/node-kit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "repository": "git@github.com:ustinian-wang/node-kit.git",
   "author": "jser <wangjser@gmail.com>",
