@@ -171,3 +171,24 @@ export async function copyDir(srcDir, distDir){
 export async function copyFile(srcFilePath, distFilePath){
     await fs.copyFile(srcFilePath, distFilePath);
 }
+
+/**
+ * @description 读取JSON文件
+ * @param {string} filePath 文件路径
+ * @returns {Promise<object>} 文件内容
+ */
+export async function readJSONFile(filePath){
+    let fileContent = await fs.readFile(filePath);
+    return JSON.parse(fileContent);
+}
+
+/**
+ * @description 写入JSON文件
+ * @param {string} filePath 文件路径
+ * @param {object} data 数据
+ * @returns {Promise<void>} 写入文件的Promise
+ */
+export async function writeJSONFile(filePath, data){
+    await fs.writeFile(filePath, JSON.stringify(data));
+}
+
