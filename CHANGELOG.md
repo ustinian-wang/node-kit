@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/ustinian-wang/node-kit/compare/v1.0.4...v1.0.5) (2025-02-23)
+
+
+### Bug Fixes
+
+* wrong export crypto ([a1ff76c](https://github.com/ustinian-wang/node-kit/commit/a1ff76cd59c0eb22055d4d390521fc670f2bb2cd))
+
 ### [1.0.4](https://github.com/ustinian-wang/node-kit/compare/v1.0.3...v1.0.4) (2025-02-19)
 
 
