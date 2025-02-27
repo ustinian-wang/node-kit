@@ -31,8 +31,8 @@ export function httpRequest(options) {
 
       res.on('end', () => {
         try {
-          const jsonResponse = JSON.parse(data);
-          resolve(jsonResponse);
+          // const jsonResponse = JSON.parse(data);
+          resolve(data);
         } catch (error) {
           reject(new Error('Response is not valid JSON'));
         }
