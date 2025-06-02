@@ -1,4 +1,5 @@
-import { promises as fs } from 'node:fs';
+import { promises as fs, statSync, readdirSync, readFileSync, writeFileSync, unlinkSync, rmdirSync, copyFileSync, existsSync } from 'node:fs';
+import path from 'node:path';
 
 /**
  * 创建文件如果不存在
@@ -106,7 +107,7 @@ export async function deleteDir(dirPath) {
  * @returns {Promise<boolean>} 文件是否存在
  */
 export function isFile(filePath){
-    const stats = fs.statSync(filePath);
+    const stats = statSync(filePath);
     return stats.isFile();
 }
 
@@ -128,26 +129,26 @@ export const isDir = async (dirPath)=>{
  */
 export async function copyDir(srcDir, distDir){
     //判断是否存在
-    if(!fs.existsSync(srcDir)){
+    if(!existsSync(srcDir)){
         return false;
     }
-    if(!fs.existsSync(distDir)){
+    if(!existsSync(distDir)){
         return false;
     }
     //判断是否是文件夹
-    if(!fs.statSync(srcDir).isDirectory()){
+    if(!statSync(srcDir).isDirectory()){
         return false;
     }
-    if(!fs.statSync(distDir).isDirectory()){
+    if(!statSync(distDir).isDirectory()){
         return false;
     }
     //获取文件夹下的所有文件
-    var srcFiles = fs.readdirSync(srcDir);
+    var srcFiles = readdirSync(srcDir);
 
     let saveTasks =  srcFiles.filter((fileName, index)=>{
         var srcFilePath = path.join(srcDir, fileName);
 
-        var fileStats = fs.statSync(srcFilePath);
+        var fileStats = statSync(srcFilePath);
         if(fileStats.isDirectory()){//如果是目录，直接跳过
             return false;
         }
