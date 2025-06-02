@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.7](https://github.com/ustinian-wang/node-kit/compare/v1.0.6...v1.0.7) (2025-06-02)
+
+
+### Features
+
+* add ai ([ae801a1](https://github.com/ustinian-wang/node-kit/commit/ae801a1379f1cb06723f7fff8f7e7120fb4b9122))
+* add test cases ([5e8781e](https://github.com/ustinian-wang/node-kit/commit/5e8781e39790102d5e54f77994f6a5fd98a0d021))
+* update ([4f86b5d](https://github.com/ustinian-wang/node-kit/commit/4f86b5dd8c27ce695e5d4653ea1b45fe6fe9b399))
+
 ### [1.0.6](https://github.com/ustinian-wang/node-kit/compare/v1.0.5...v1.0.6) (2025-02-23)
 
 ### [1.0.5](https://github.com/ustinian-wang/node-kit/compare/v1.0.4...v1.0.5) (2025-02-23)
