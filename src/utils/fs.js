@@ -1,4 +1,4 @@
-import { promises as fs } from 'fs';
+import { promises as fs } from 'node:fs';
 
 /**
  * 创建文件如果不存在
@@ -105,8 +105,8 @@ export async function deleteDir(dirPath) {
  * @param {string} filePath 文件路径
  * @returns {Promise<boolean>} 文件是否存在
  */
-export const isFile = async (filePath)=>{
-    const stats = await fs.stat(filePath);
+export function isFile(filePath){
+    const stats = fs.statSync(filePath);
     return stats.isFile();
 }
 

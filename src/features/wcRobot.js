@@ -6,7 +6,7 @@ import { httpPost } from "../utils/http";
  * @param {string} options.url - WCRobot 的 URL
  * @param {Object} options.body - 消息体
  */
-export function sendWCRobot(options){
+export function callWcRobot(options){
     httpPost({
         url: options.url,
         headers: {
@@ -21,8 +21,8 @@ export function sendWCRobot(options){
  * @param {string} url - WCRobot 的 URL
  * @param {string} content - Markdown 内容
  */
-export function sendWCRobotMD(url, content){
-    sendWCRobot({
+export function callWcRobotMD(url, content){
+    callWcRobot({
         url,
         body: {
             msgtype: 'markdown',
@@ -39,6 +39,6 @@ export function sendWCRobotMD(url, content){
  * @param {string} user - 被 @ 的用户
  * @param {string} content - Markdown 内容
  */
-export function sendWCRobotAtMD(url, user, content){
-    sendWCRobotMD(url, `<@${user}> ${content}`);
+export function callWcRobotAtMD(url, user, content){
+    callWcRobotMD(url, `<@${user}> ${content}`);
 }
