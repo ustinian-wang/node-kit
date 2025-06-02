@@ -3,3 +3,5 @@ dist/
 demo.js
 CHANGELOG.md
 demo.mjs
+tmp-test
+*.tgz

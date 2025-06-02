@@ -13,6 +13,9 @@
     "scp2": "^0.5.0",
     "ssh2": "^1.16.0"
   },
+  "files": [
+    "src"
+  ],
   "scripts": {
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "pub": "standard-version && npm publish",
